@@ -1,5 +1,11 @@
 package SetProxy;
 
+import com.alibaba.fastjson.JSONObject;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -25,7 +31,6 @@ public class Stock {
             entityStringBuilder.append(line+"/n");
         }
         //利用从HttpEntity中得到的String生成JsonObject
-        resultJsonObject=new JSONObject(entityStringBuilder.toString());
         bytes.toString();
         System.out.println(response.getEntity().getContent());
     }

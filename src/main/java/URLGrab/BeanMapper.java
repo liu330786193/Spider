@@ -1,5 +1,7 @@
 package URLGrab;
 
+import com.google.common.collect.Lists;
+
 import java.beans.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -132,6 +134,20 @@ public class BeanMapper {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * Comment is created by lyl on 2017/11/15 下午6:17.
+     *
+     * list之间相互映射
+     */
+    public static <T> List<T> listToList(List<Object> sourceList, Class<T> destinationClass){
+        List list = Lists.newArrayList();
+        sourceList.stream()
+                .forEach(source -> {
+                    list.add(objectToObject(source, destinationClass));
+                });
+        return list;
     }
 
     /**
